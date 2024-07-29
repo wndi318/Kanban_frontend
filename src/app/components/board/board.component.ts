@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { NavbarComponent } from '../navbar/navbar.component';
 import {
   CdkDragDrop,
@@ -9,15 +10,31 @@ import {
   CdkDropList,
   DragDropModule
 } from '@angular/cdk/drag-drop';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { NewTaskComponent } from '../new-task/new-task.component';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [MatIconModule, NavbarComponent, CdkDropList, CdkDrag, DragDropModule],
+  imports: [
+    MatIconModule,
+    MatButtonModule,
+    NavbarComponent,
+    CdkDropList,
+    CdkDrag,
+    DragDropModule,
+    MatDialogModule
+  ],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
+
 export class BoardComponent {
+  constructor(
+    private dialog: MatDialog,
+  ) { }
+
+
   todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
   inProgress = ['Eat-Pizza'];
   awaitFeedback = ['Design Kanban']
@@ -34,5 +51,11 @@ export class BoardComponent {
         event.currentIndex,
       );
     }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(NewTaskComponent, {
+      width: '500px',
+    });
   }
 }

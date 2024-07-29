@@ -1,0 +1,26 @@
+<section>
+    <mat-card>
+        <mat-card-content>
+            <div class="header">
+                <span>New Task</span>
+                <button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
+            </div>
+            <div class="content">
+                <span>Title:</span>
+                <input>
+                <span>Description:</span>
+                <textarea></textarea>
+                <span>Priority:</span>
+                <mat-radio-group>
+                    <mat-radio-button value="high" class="high">High</mat-radio-button>
+                    <mat-radio-button value="medium" class="medium">Medium</mat-radio-button>
+                    <mat-radio-button value="low" class="low">Low</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="button-container">
+                <button>Save</button>
+                <button (click)="onNoClick()">Cancel</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</section>
