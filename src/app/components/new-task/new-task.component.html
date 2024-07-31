@@ -6,16 +6,19 @@
                 <button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
             </div>
             <div class="content">
-                <span>Title:</span>
+                <span><b>Title:</b></span>
                 <input>
-                <span>Description:</span>
+                <span><b>Description:</b></span>
                 <textarea></textarea>
-                <span>Priority:</span>
+                <span><b>Priority:</b></span>
                 <mat-radio-group>
                     <mat-radio-button value="high" class="high">High</mat-radio-button>
                     <mat-radio-button value="medium" class="medium">Medium</mat-radio-button>
                     <mat-radio-button value="low" class="low">Low</mat-radio-button>
                 </mat-radio-group>
+                <span><b>Due date:</b></span>
+                <input type="date" class="datepicker">
+                <span><b>Assigned to:</b></span>
             </div>
             <div class="button-container">
                 <button>Save</button>

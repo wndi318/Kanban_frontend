@@ -1,0 +1,25 @@
+<section>
+    <mat-card>
+        <mat-card-content>
+            <div class="header">
+                <span>Task</span>
+                <button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
+            </div>
+            <div class="content">
+                <span>Title:</span>
+                <span class="info">TestTitle</span>
+                <span>Description:</span>
+                <span class="info">TestDescription</span>
+                <span>Priority:</span>
+                <div class="priority-container"><div class="priority-badge"></div>High</div>
+                <span>Due date:</span>
+                <span class="info">17.08.2024</span>
+                <span>Assigned to:</span>
+            </div>
+            <div class="button-container">
+                <button (click)="onNoClick()">Edit</button>
+                <button (click)="onNoClick()">Close</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</section>

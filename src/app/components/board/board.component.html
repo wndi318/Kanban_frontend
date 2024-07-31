@@ -4,7 +4,7 @@
         [cdkDropListConnectedTo]="[doneList, inProgressList, awaitFeedbackList]" (cdkDropListDropped)="drop($event)">
         <span class="header">Todo</span>
         @for (item of todo; track item) {
-        <div class="task" cdkDrag>
+        <div class="task" cdkDrag (click)="openTaskDialog()">
             <span>{{item}}</span>
         </div>
         }
@@ -13,7 +13,7 @@
         [cdkDropListConnectedTo]="[awaitFeedbackList, doneList, todoList]" (cdkDropListDropped)="drop($event)">
         <span>In Progress</span>
         @for (item of inProgress; track item) {
-        <div class="task" cdkDrag>
+        <div class="task" cdkDrag (click)="openTaskDialog()">
             <span>{{item}}</span>
         </div>
         }
@@ -22,7 +22,7 @@
         [cdkDropListConnectedTo]="[inProgressList, doneList, todoList]" (cdkDropListDropped)="drop($event)">
         <span>Await Feedback</span>
         @for (item of awaitFeedback; track item) {
-        <div class="task" cdkDrag>
+        <div class="task" cdkDrag (click)="openTaskDialog()">
             <span>{{item}}</span>
         </div>
         }
@@ -31,13 +31,13 @@
         [cdkDropListConnectedTo]="[todoList, awaitFeedbackList, inProgressList]" (cdkDropListDropped)="drop($event)">
         <span>Done</span>
         @for (item of done; track item) {
-        <div class="task" cdkDrag>
+        <div class="task" cdkDrag (click)="openTaskDialog()">
             <span>{{item}}</span>
         </div>
         }
     </div>
     <div class="button-container">
-        <button mat-fab (click)="openDialog()">
+        <button mat-fab (click)="openNewTaskDialog()">
           <mat-icon>add</mat-icon>
         </button>
       </div>

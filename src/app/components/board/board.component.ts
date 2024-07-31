@@ -12,6 +12,7 @@ import {
 } from '@angular/cdk/drag-drop';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { NewTaskComponent } from '../new-task/new-task.component';
+import { TaskComponent } from '../task/task.component';
 
 @Component({
   selector: 'app-board',
@@ -53,8 +54,14 @@ export class BoardComponent {
     }
   }
 
-  openDialog(): void {
+  openNewTaskDialog(): void {
     const dialogRef = this.dialog.open(NewTaskComponent, {
+      width: '500px',
+    });
+  }
+
+  openTaskDialog(): void {
+    const dialogRef = this.dialog.open(TaskComponent, {
       width: '500px',
     });
   }
