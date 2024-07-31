@@ -1,0 +1,96 @@
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+mat-card {
+    height: fit-content;
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.828);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.828);
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #18171c;
+    margin-block-start: 0;
+}
+
+form {
+    color: #18171c;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 500;
+
+    input {
+        font-size: 18px;
+        border: none;
+        border-bottom: 2px solid #18171c;
+        outline: none;
+        background-color: transparent;
+    }
+
+    .name-container {
+        display: flex;
+        gap: 53px;
+        align-items: center;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+
+    .register {
+        background-color: #18171c;
+        color: rgba(255, 255, 255, 0.828);
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        padding: 8px;
+        cursor: pointer;
+        transition: all 225ms ease-in-out;
+
+        &:hover {
+            background-color: transparent;
+            color: #18171c;
+            border: 2px solid #18171c;
+        }
+    }
+
+    .login{
+        background-color: transparent;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        padding: 8px;
+        cursor: pointer;
+        border: 2px solid #18171c;
+        transition: all 225ms ease-in-out;
+
+        &:hover {
+            background-color: #18171c;
+            color: rgba(255, 255, 255, 0.828);
+        }
+    }
+}
