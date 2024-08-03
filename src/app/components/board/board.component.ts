@@ -24,17 +24,17 @@ import { TaskComponent } from '../task/task.component';
     CdkDropList,
     CdkDrag,
     DragDropModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
 
 export class BoardComponent {
+  
   constructor(
     private dialog: MatDialog,
   ) { }
-
 
   todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
   inProgress = ['Eat-Pizza'];

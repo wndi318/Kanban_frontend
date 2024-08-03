@@ -2,16 +2,13 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
 }
 
 mat-card {
     height: fit-content;
     width: 500px;
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-        0 8px 10px 1px rgba(0, 0, 0, 0.14),
-        0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 mat-card-content {
@@ -53,6 +50,8 @@ mat-card-content {
     input {
         border: none;
         border-bottom: 1px solid #18171c;
+        background-color: transparent;
+        font-size: 18px;
     }
 
     input:focus {
@@ -63,6 +62,8 @@ mat-card-content {
         border: none;
         border-bottom: 1px solid #18171c;
         resize: none;
+        background-color: transparent;
+        font-size: 18px;
     }
 
     textarea:focus {
