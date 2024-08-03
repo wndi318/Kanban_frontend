@@ -2,13 +2,13 @@
     <mat-card>
         <mat-card-content>
             <h1>Login</h1>
-            <form>
+            <form (ngSubmit)="login()">
                 <span>Username</span>
-                <input>
+                <input type="text" name="username" [(ngModel)]="username" required>
                 <span>Password</span>
-                <input>
+                <input type="password" name="password" [(ngModel)]="password" required>
                 <div class="button-container">
-                    <button class="login" routerLink="./board">Login</button>
+                    <button class="login" type="submit">Login</button>
                     <button class="register" routerLink="./register">Register</button>
                 </div>
             </form>
