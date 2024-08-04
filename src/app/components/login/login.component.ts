@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
@@ -20,7 +20,7 @@ export class LoginComponent {
   username: string = '';
   password: string = ''
 
-  constructor(private authService:AuthService){
+  constructor(private authService:AuthService, private router: Router){
 
   }
 
@@ -28,11 +28,10 @@ export class LoginComponent {
     try {
       let resp = await this.authService.loginWithUsernameAndPassword(this.username, this.password);
       console.log(resp);
-      // TODO: Redirect
+      this.router.navigateByUrl('/board');
     } catch(e){
-      // Show error message
+      alert('Login failed: Username or password incorrect')
       console.error(e);
-
     }
   }
 }

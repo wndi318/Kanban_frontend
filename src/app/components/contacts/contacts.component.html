@@ -5,11 +5,13 @@
                 <span>Contacts</span>
                 <button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
             </div>
-            <div class="contacts">
-                <span class="name">Sabine Müller</span>
-                <span class="mail">sabinemüller&#64;test.de</span>
-                <hr>
-            </div>
+            @for (contact of contacts; track contacts) {
+                <div class="contacts">
+                    <span class="name">{{ contact.firstname }} {{ contact.lastname }}</span>
+                    <span class="mail">{{ contact.mail }}</span>
+                    <hr>
+                </div>
+            }
             <button class="new-contact" (click)="openNewContactDialog()">Add new contact</button>
         </mat-card-content>
     </mat-card>
