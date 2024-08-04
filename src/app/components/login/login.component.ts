@@ -20,14 +20,13 @@ export class LoginComponent {
   username: string = '';
   password: string = ''
 
-  constructor(private authService:AuthService, private router: Router){
-
-  }
+  constructor(private authService:AuthService, private router: Router){}
 
   async login() {
     try {
-      let resp = await this.authService.loginWithUsernameAndPassword(this.username, this.password);
+      let resp:any = await this.authService.loginWithUsernameAndPassword(this.username, this.password);
       console.log(resp);
+      localStorage.setItem('token', resp['token'])
       this.router.navigateByUrl('/board');
     } catch(e){
       alert('Login failed: Username or password incorrect')

@@ -4,7 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AddNewContactComponent } from './add-new-contact/add-new-contact.component';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { lastValueFrom } from 'rxjs';
 
@@ -35,11 +35,7 @@ export class ContactsComponent {
 
   loadContacts(){
     const url = environment.baseUrl + "/contacts/";
-    let headers = new HttpHeaders();
-    headers = headers.set('Authorization', 'Token ' + localStorage.getItem('token'));
-    return lastValueFrom(this.http.get(url, {
-      headers : headers
-    }));
+    return lastValueFrom(this.http.get(url));
   }
 
   openNewContactDialog(): void {
