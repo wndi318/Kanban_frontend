@@ -7,14 +7,14 @@
             </div>
             <div class="content">
                 <span>First name</span>
-                <input>
+                <input type="text" name="firstname" [(ngModel)]="newContact.firstname">
                 <span>Last name</span>
-                <input>
+                <input type="text" name="lastname" [(ngModel)]="newContact.lastname">
                 <span>E-Mail</span>
-                <input>
+                <input type="email" name="mail" [(ngModel)]="newContact.mail">
             </div>
             <div class="button-container">
-                <button class="add">Add</button>
+                <button class="add" (click)="addContact()">Add</button>
                 <button class="cancel" (click)="onNoClick()">Cancel</button>
             </div>
         </mat-card-content>

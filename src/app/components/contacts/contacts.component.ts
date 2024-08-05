@@ -42,6 +42,12 @@ export class ContactsComponent {
     const dialogRef = this.dialog.open(AddNewContactComponent, {
       width: '500px',
     });
+
+    dialogRef.afterClosed().subscribe(async result => {
+      if (result) {
+        this.contacts = await this.loadContacts();
+      }
+    });
   }
 
   onNoClick(): void {

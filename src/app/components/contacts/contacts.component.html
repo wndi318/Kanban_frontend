@@ -5,15 +5,16 @@
                 <span>Contacts</span>
                 <button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
             </div>
-            @for (contact of contacts; track contacts) {
+            <div class="all-contacts">
+                @for (contact of contacts; track contacts) {
                 <div class="contacts">
                     <span class="name">{{ contact.firstname }} {{ contact.lastname }}</span>
                     <span class="mail">{{ contact.mail }}</span>
                     <hr>
                 </div>
-            }
+                }
+            </div>
             <button class="new-contact" (click)="openNewContactDialog()">Add new contact</button>
         </mat-card-content>
     </mat-card>
 </section>
-
