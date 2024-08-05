@@ -76,7 +76,27 @@ mat-card-content {
     padding: 10px 20px 10px 20px;
 
     .name {
+        display: flex;
         font-size: 18px;
+        align-items: center;
+        justify-content: space-between;
+
+        div {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            
+            img {
+                height: 22px;
+                width: 22px;
+                cursor: pointer;
+                transition: scale 225ms ease-in-out;
+
+                &:hover {
+                    scale: 1.15;
+                }
+            }
+        }
     }
 
     .mail {

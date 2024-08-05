@@ -38,11 +38,20 @@ export class ContactsComponent {
     return lastValueFrom(this.http.get(url));
   }
 
+  async deleteContact(id: number) {
+    const url = `${environment.baseUrl}/contacts/${id}/`;
+    try {
+      await lastValueFrom(this.http.delete(url));
+      this.contacts = await this.loadContacts();
+    } catch (error) {
+      console.error('Error deleting contact', error);
+    }
+  }
+
   openNewContactDialog(): void {
     const dialogRef = this.dialog.open(AddNewContactComponent, {
       width: '500px',
     });
-
     dialogRef.afterClosed().subscribe(async result => {
       if (result) {
         this.contacts = await this.loadContacts();

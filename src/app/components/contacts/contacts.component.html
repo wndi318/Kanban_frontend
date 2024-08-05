@@ -8,7 +8,9 @@
             <div class="all-contacts">
                 @for (contact of contacts; track contacts) {
                 <div class="contacts">
-                    <span class="name">{{ contact.firstname }} {{ contact.lastname }}</span>
+                    <span class="name">{{ contact.firstname }} {{ contact.lastname }}
+                        <div><img src="./../../../assets/img/edit.png"><img src="./../../../assets/img/delete.png" (click)="deleteContact(contact.id)"></div>
+                    </span>
                     <span class="mail">{{ contact.mail }}</span>
                     <hr>
                 </div>
