@@ -1,0 +1,23 @@
+<section>
+    <mat-card>
+        <mat-card-content>
+            <div class="header">
+                <span>Contacts</span>
+                <button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
+            </div>
+            <div class="content">
+                <span>First name</span>
+                <input type="text" name="firstname" [(ngModel)]="editedContact.firstname" required>
+                <span>Last name</span>
+                <input type="text" name="lastname" [(ngModel)]="editedContact.lastname" required>
+                <span>E-Mail</span>
+                <input type="email" name="mail" [(ngModel)]="editedContact.mail" required>
+            </div>
+            <div class="button-container">
+                <button class="add" (click)="saveContact()">Save</button>
+                <button class="cancel" (click)="onNoClick()">Cancel</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</section>
+

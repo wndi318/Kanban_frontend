@@ -4,9 +4,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AddNewContactComponent } from './add-new-contact/add-new-contact.component';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { lastValueFrom } from 'rxjs';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
 
 @Component({
   selector: 'app-contacts',
@@ -21,7 +22,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class ContactsComponent {
 
-  contacts:any = [];
+  contacts: any = [];
 
   constructor(
     private http: HttpClient,
@@ -33,7 +34,7 @@ export class ContactsComponent {
     this.contacts = await this.loadContacts()
   }
 
-  loadContacts(){
+  loadContacts() {
     const url = environment.baseUrl + "/contacts/";
     return lastValueFrom(this.http.get(url));
   }
@@ -52,6 +53,19 @@ export class ContactsComponent {
     const dialogRef = this.dialog.open(AddNewContactComponent, {
       width: '500px',
     });
+    dialogRef.afterClosed().subscribe(async result => {
+      if (result) {
+        this.contacts = await this.loadContacts();
+      }
+    });
+  }
+
+  openEditContactDialog(contact: any): void {
+    const dialogRef = this.dialog.open(EditContactComponent, {
+      width: '500px',
+      data: contact
+    });
+
     dialogRef.afterClosed().subscribe(async result => {
       if (result) {
         this.contacts = await this.loadContacts();
