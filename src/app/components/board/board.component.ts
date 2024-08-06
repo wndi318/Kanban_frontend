@@ -115,6 +115,7 @@ export class BoardComponent {
     dialogRef.afterClosed().subscribe(async result => {
       if (result) {
         this.tasks = await this.loadTasks();
+        this.categorizeTasks();
       }
     });
   }
