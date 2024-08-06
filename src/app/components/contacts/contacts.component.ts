@@ -21,7 +21,6 @@ import { EditContactComponent } from './edit-contact/edit-contact.component';
   styleUrl: './contacts.component.scss'
 })
 export class ContactsComponent {
-
   contacts: any = [];
 
   constructor(

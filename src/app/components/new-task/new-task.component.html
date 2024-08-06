@@ -1,29 +1,46 @@
 <section>
     <mat-card>
-        <mat-card-content>
-            <div class="header">
-                <span>New Task</span>
-                <button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
-            </div>
-            <div class="content">
-                <span><b>Title:</b></span>
-                <input>
-                <span><b>Description:</b></span>
-                <textarea></textarea>
-                <span><b>Priority:</b></span>
-                <mat-radio-group>
-                    <mat-radio-button value="high" class="high">High</mat-radio-button>
-                    <mat-radio-button value="medium" class="medium">Medium</mat-radio-button>
-                    <mat-radio-button value="low" class="low">Low</mat-radio-button>
-                </mat-radio-group>
-                <span><b>Due date:</b></span>
-                <input type="date" class="datepicker">
-                <span><b>Assigned to:</b></span>
-            </div>
-            <div class="button-container">
-                <button>Save</button>
-                <button (click)="onNoClick()">Cancel</button>
-            </div>
-        </mat-card-content>
+      <mat-card-content>
+        <div class="header">
+          <span>New Task</span>
+          <button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
+        </div>
+        <div class="content">
+          <form [formGroup]="taskForm">
+            <span><b>Title:</b></span>
+            <input placeholder="Title" formControlName="title">
+            <span><b>Description:</b></span>
+            <textarea placeholder="Description" formControlName="description"></textarea>
+            <span><b>Status:</b></span>
+            <mat-radio-group formControlName="status">
+              <mat-radio-button value="todo" class="high">Todo</mat-radio-button>
+              <mat-radio-button value="inProgress" class="medium">In progress</mat-radio-button>
+              <mat-radio-button value="awaitFeedback" class="await-feedback">Await feedback</mat-radio-button>
+            </mat-radio-group>
+            <span><b>Priority:</b></span>
+            <mat-radio-group formControlName="priority">
+              <mat-radio-button value="high" class="high">High</mat-radio-button>
+              <mat-radio-button value="medium" class="medium">Medium</mat-radio-button>
+              <mat-radio-button value="low" class="low">Low</mat-radio-button>
+            </mat-radio-group>
+            <span><b>Due date:</b></span>
+            <input type="date" class="datepicker" formControlName="due_date">
+            <span><b>Assigned to:</b></span>
+            <div class="assigned-to-container">
+                <ng-container *ngFor="let contact of contacts">
+                  <span>
+                    <input type="checkbox" (change)="onCheckboxChange($event, contact.id)">
+                    {{ contact.firstname }} {{ contact.lastname }}
+                  </span>
+                </ng-container>
+              </div>
+          </form>
+        </div>
+        <div class="button-container">
+          <button (click)="addTask()">Save</button>
+          <button (click)="onNoClick()">Cancel</button>
+        </div>
+      </mat-card-content>
     </mat-card>
-</section>
+  </section>
+  
