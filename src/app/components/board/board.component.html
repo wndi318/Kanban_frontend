@@ -1,48 +1,64 @@
 <app-navbar></app-navbar>
 <section>
-  <div class="todo" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
-      [id]="'todoList'"
-      [cdkDropListConnectedTo]="['doneList', 'inProgressList', 'awaitFeedbackList']" (cdkDropListDropped)="drop($event)">
-    <span class="header">Todo</span>
-    <ng-container *ngFor="let task of todo; track task">
-      <div class="task" cdkDrag (click)="openTaskDialog()">
-        <span>{{task.title}}</span>
-      </div>
-    </ng-container>
-  </div>
-  <div class="in-progress" cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="inProgress"
-      [id]="'inProgressList'"
-      [cdkDropListConnectedTo]="['awaitFeedbackList', 'doneList', 'todoList']" (cdkDropListDropped)="drop($event)">
-    <span>In Progress</span>
-    <ng-container *ngFor="let task of inProgress; track task">
-      <div class="task" cdkDrag (click)="openTaskDialog()">
-        <span>{{task.title}}</span>
-      </div>
-    </ng-container>
-  </div>
-  <div class="await-feedback" cdkDropList #awaitFeedbackList="cdkDropList" [cdkDropListData]="awaitFeedback"
-      [id]="'awaitFeedbackList'"
-      [cdkDropListConnectedTo]="['inProgressList', 'doneList', 'todoList']" (cdkDropListDropped)="drop($event)">
-    <span>Await Feedback</span>
-    <ng-container *ngFor="let task of awaitFeedback; track task">
-      <div class="task" cdkDrag (click)="openTaskDialog()">
-        <span>{{task.title}}</span>
-      </div>
-    </ng-container>
-  </div>
-  <div class="done" cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
-      [id]="'doneList'"
-      [cdkDropListConnectedTo]="['todoList', 'awaitFeedbackList', 'inProgressList']" (cdkDropListDropped)="drop($event)">
-    <span>Done</span>
-    <ng-container *ngFor="let task of done; track task">
-      <div class="task" cdkDrag (click)="openTaskDialog()">
-        <span>{{task.title}}</span>
-      </div>
-    </ng-container>
-  </div>
-  <div class="button-container">
-    <button mat-fab (click)="openNewTaskDialog()">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
+    <div class="todo" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [id]="'todoList'"
+        [cdkDropListConnectedTo]="['doneList', 'inProgressList', 'awaitFeedbackList']"
+        (cdkDropListDropped)="drop($event)">
+        <span class="header">Todo</span>
+        <ng-container *ngFor="let task of todo; track task">
+            <div class="task" cdkDrag (click)="openTaskDialog()">
+                <span><b>{{task.title}}</b></span>
+                <div class="priority-container">
+                    <span>Priority:</span>
+                    <span [ngStyle]="{'color': getPriorityColor(task.priority)}"><b>{{task.priority}}</b></span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="in-progress" cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="inProgress"
+        [id]="'inProgressList'" [cdkDropListConnectedTo]="['awaitFeedbackList', 'doneList', 'todoList']"
+        (cdkDropListDropped)="drop($event)">
+        <span>In Progress</span>
+        <ng-container *ngFor="let task of inProgress; track task">
+            <div class="task" cdkDrag (click)="openTaskDialog()">
+                <span><b>{{task.title}}</b></span>
+                <div class="priority-container">
+                    <span>Priority:</span>
+                    <span [ngStyle]="{'color': getPriorityColor(task.priority)}"><b>{{task.priority}}</b></span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="await-feedback" cdkDropList #awaitFeedbackList="cdkDropList" [cdkDropListData]="awaitFeedback"
+        [id]="'awaitFeedbackList'" [cdkDropListConnectedTo]="['inProgressList', 'doneList', 'todoList']"
+        (cdkDropListDropped)="drop($event)">
+        <span>Await Feedback</span>
+        <ng-container *ngFor="let task of awaitFeedback; track task">
+            <div class="task" cdkDrag (click)="openTaskDialog()">
+                <span><b>{{task.title}}</b></span>
+                <div class="priority-container">
+                    <span>Priority:</span>
+                    <span [ngStyle]="{'color': getPriorityColor(task.priority)}"><b>{{task.priority}}</b></span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="done" cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [id]="'doneList'"
+        [cdkDropListConnectedTo]="['todoList', 'awaitFeedbackList', 'inProgressList']"
+        (cdkDropListDropped)="drop($event)">
+        <span>Done</span>
+        <ng-container *ngFor="let task of done; track task">
+            <div class="task" cdkDrag (click)="openTaskDialog()">
+                <span><b>{{task.title}}</b></span>
+                <div class="priority-container">
+                    <span>Priority:</span>
+                    <span [ngStyle]="{'color': getPriorityColor(task.priority)}"><b>{{task.priority}}</b></span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="button-container">
+        <button mat-fab (click)="openNewTaskDialog()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
 </section>

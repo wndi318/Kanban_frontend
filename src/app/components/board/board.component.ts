@@ -99,6 +99,19 @@ export class BoardComponent {
     }
   }
 
+  getPriorityColor(priority: string): string {
+    switch (priority) {
+      case 'high':
+        return 'red';
+      case 'medium':
+        return 'orange';
+      case 'low':
+        return 'green';
+      default:
+        return 'black';
+    }
+  }
+
   async updateTaskStatus(task: any) {
     const url = `${environment.baseUrl}/tasks/${task.id}/`;
     try {

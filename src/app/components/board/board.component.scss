@@ -10,6 +10,15 @@ section {
     div {
         border-radius: 12px;
         font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .priority-container {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
     }
 }
 
@@ -73,6 +82,22 @@ section {
         scale: 1.05;
     }
 }
+
+.high-priority {
+    color: #E0465E;
+  }
+  
+  .medium-priority {
+    color: #FAAA49;
+  }
+  
+  .low-priority {
+    color: #1EC779;
+  }
+  
+  .default-priority {
+    color: black;
+  }
 
 .cdk-drag-preview {
     box-sizing: border-box;
