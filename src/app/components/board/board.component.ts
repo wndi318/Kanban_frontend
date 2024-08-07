@@ -145,5 +145,8 @@ export class BoardComponent {
       }
     });
   }
-  
+
+  trackByTaskId(index: number, task: any): number {
+    return task.id;
+  }
 }
