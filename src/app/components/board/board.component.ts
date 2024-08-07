@@ -133,9 +133,10 @@ export class BoardComponent {
     });
   }
 
-  openTaskDialog(): void {
+  openTaskDialog(task:any): void {
     const dialogRef = this.dialog.open(TaskComponent, {
       width: '500px',
+      data: task
     });
   }
 }

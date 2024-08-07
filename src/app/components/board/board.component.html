@@ -5,7 +5,7 @@
         (cdkDropListDropped)="drop($event)">
         <span class="header">Todo</span>
         <ng-container *ngFor="let task of todo; track task">
-            <div class="task" cdkDrag (click)="openTaskDialog()">
+            <div class="task" cdkDrag (click)="openTaskDialog(task)">
                 <span><b>{{task.title}}</b></span>
                 <div class="priority-container">
                     <span>Priority:</span>
@@ -19,7 +19,7 @@
         (cdkDropListDropped)="drop($event)">
         <span>In Progress</span>
         <ng-container *ngFor="let task of inProgress; track task">
-            <div class="task" cdkDrag (click)="openTaskDialog()">
+            <div class="task" cdkDrag (click)="openTaskDialog(task)">
                 <span><b>{{task.title}}</b></span>
                 <div class="priority-container">
                     <span>Priority:</span>
@@ -33,7 +33,7 @@
         (cdkDropListDropped)="drop($event)">
         <span>Await Feedback</span>
         <ng-container *ngFor="let task of awaitFeedback; track task">
-            <div class="task" cdkDrag (click)="openTaskDialog()">
+            <div class="task" cdkDrag (click)="openTaskDialog(task)">
                 <span><b>{{task.title}}</b></span>
                 <div class="priority-container">
                     <span>Priority:</span>
@@ -47,7 +47,7 @@
         (cdkDropListDropped)="drop($event)">
         <span>Done</span>
         <ng-container *ngFor="let task of done; track task">
-            <div class="task" cdkDrag (click)="openTaskDialog()">
+            <div class="task" cdkDrag (click)="openTaskDialog(task)">
                 <span><b>{{task.title}}</b></span>
                 <div class="priority-container">
                     <span>Priority:</span>

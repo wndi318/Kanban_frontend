@@ -7,13 +7,13 @@
             </div>
             <div class="content">
                 <span>Title:</span>
-                <span class="info">TestTitle</span>
+                <span class="info">{{ task.title }}</span>
                 <span>Description:</span>
-                <span class="info">TestDescription</span>
+                <span class="info">{{ task.description }}</span>
                 <span>Priority:</span>
-                <div class="priority-container"><div class="priority-badge"></div>High</div>
+                <div class="priority-container"><div class="priority-badge" [ngStyle]="{'background-color': getPriorityColor(task.priority)}"></div>{{ task.priority }}</div>
                 <span>Due date:</span>
-                <span class="info">17.08.2024</span>
+                <span class="info">{{ task.due_date }}</span>
                 <span>Assigned to:</span>
             </div>
             <div class="button-container">

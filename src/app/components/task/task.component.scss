@@ -62,10 +62,25 @@ mat-card-content {
     .priority-badge {
         height: 18px;
         width: 18px;
-        background-color: #E0465E;
         border-radius: 100%;
     }
 }
+
+.high-priority {
+    background-color: #E0465E;
+  }
+  
+  .medium-priority {
+    background-color: #FAAA49;
+  }
+  
+  .low-priority {
+    background-color: #1EC779;
+  }
+  
+  .default-priority {
+    background-color: black;
+  }
 
 .info {
     padding-left: 20px;
