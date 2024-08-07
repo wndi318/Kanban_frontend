@@ -16,13 +16,12 @@ import { HttpClient } from '@angular/common/http';
     CommonModule
   ],
   templateUrl: './task.component.html',
-  styleUrl: './task.component.scss'
+  styleUrls: ['./task.component.scss']
 })
 export class TaskComponent {
 
-  task: any
+  task: any;
   contacts: any = [];
-  
 
   constructor(
     public dialogRef: MatDialogRef<TaskComponent>,
@@ -33,7 +32,7 @@ export class TaskComponent {
   }
 
   async ngOnInit() {
-    this.contacts = await this.loadContacts()
+    this.contacts = await this.loadContacts();
   }
 
   loadContacts() {
@@ -43,6 +42,16 @@ export class TaskComponent {
 
   getAssignedContacts(): any[] {
     return this.contacts.filter((contact: { id: any; }) => this.task.assigned_to.includes(contact.id));
+  }
+
+  async deleteTask(id: number) {
+    const url = `${environment.baseUrl}/tasks/${id}/`;
+    try {
+      await lastValueFrom(this.http.delete(url));
+      this.dialogRef.close({ deleted: true });
+    } catch (error) {
+      console.error('Error deleting task', error);
+    }
   }
 
   getPriorityColor(priority: string): string {

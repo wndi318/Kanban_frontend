@@ -133,10 +133,17 @@ export class BoardComponent {
     });
   }
 
-  openTaskDialog(task:any): void {
+  openTaskDialog(task: any): void {
     const dialogRef = this.dialog.open(TaskComponent, {
       width: '500px',
       data: task
     });
+    dialogRef.afterClosed().subscribe(async result => {
+      if (result) {
+        this.tasks = await this.loadTasks();
+        this.categorizeTasks();
+      }
+    });
   }
+  
 }
