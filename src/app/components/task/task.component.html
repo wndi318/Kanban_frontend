@@ -15,6 +15,9 @@
                 <span>Due date:</span>
                 <span class="info">{{ task.due_date }}</span>
                 <span>Assigned to:</span>
+                <ul>
+                    <li *ngFor="let contact of getAssignedContacts()"><b>{{ contact.firstname }} {{contact.lastname}}</b></li>
+                </ul>
             </div>
             <div class="button-container">
                 <button (click)="onNoClick()">Edit</button>

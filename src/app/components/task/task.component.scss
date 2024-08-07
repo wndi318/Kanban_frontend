@@ -68,22 +68,27 @@ mat-card-content {
 
 .high-priority {
     background-color: #E0465E;
-  }
-  
-  .medium-priority {
+}
+
+.medium-priority {
     background-color: #FAAA49;
-  }
-  
-  .low-priority {
+}
+
+.low-priority {
     background-color: #1EC779;
-  }
-  
-  .default-priority {
+}
+
+.default-priority {
     background-color: black;
-  }
+}
 
 .info {
     padding-left: 20px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+li {
     font-size: 18px;
     font-weight: 700;
 }

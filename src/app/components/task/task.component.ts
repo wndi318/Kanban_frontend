@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { environment } from '../../../environments/environment';
+import { lastValueFrom } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-task',
@@ -18,12 +21,28 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class TaskComponent {
 
   task: any
+  contacts: any = [];
+  
 
   constructor(
     public dialogRef: MatDialogRef<TaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private http: HttpClient,
   ) {
     this.task = { ...data };
+  }
+
+  async ngOnInit() {
+    this.contacts = await this.loadContacts()
+  }
+
+  loadContacts() {
+    const url = environment.baseUrl + "/contacts/";
+    return lastValueFrom(this.http.get(url));
+  }
+
+  getAssignedContacts(): any[] {
+    return this.contacts.filter((contact: { id: any; }) => this.task.assigned_to.includes(contact.id));
   }
 
   getPriorityColor(priority: string): string {
