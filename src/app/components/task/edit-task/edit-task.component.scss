@@ -1,0 +1,294 @@
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+}
+
+mat-card {
+    height: fit-content;
+    width: 500px;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    color: #18171c;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 24px;
+    font-size: 18px;
+    font-weight: 700;
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        transition: scale 225ms ease-in-out;
+        border-radius: 100%;
+        outline: none;
+
+        &:hover {
+            scale: 1.05;
+        }
+    }
+}
+
+.content {
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        input {
+            border: none;
+            border-bottom: 1px solid #18171c;
+            background-color: transparent;
+            font-size: 18px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        textarea {
+            border: none;
+            border-bottom: 1px solid #18171c;
+            resize: none;
+            background-color: transparent;
+            font-size: 18px;
+            font-family: 'Roboto Condensed';
+
+            &::placeholder {
+                font-family: 'Roboto Condensed';
+            }
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+
+        .assigned-to-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            font-size: 16px;
+            gap: 8px;
+
+            span {
+                input {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+mat-radio-group {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.datepicker {
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    font-family: 'Roboto Condensed';
+}
+
+.datepicker::-webkit-calendar-picker-indicator {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.datepicker::-webkit-inner-spin-button,
+.datepicker::-webkit-clear-button {
+    display: none;
+}
+
+.button-container {
+    padding-top: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    button {
+        background-color: transparent;
+        border: 2px solid #18171c;
+        border-radius: 20px;
+        padding: 16px;
+        transition: background-color 225ms ease-in-out;
+        font-weight: 700;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #18171c;
+            color: white;
+        }
+    }
+}
+
+.mat-radio-button.high .mat-radio-checked .mat-radio-inner-circle {
+    background-color: #E0465E;
+}
+
+.mat-radio-button.medium.mat-radio-checked .mat-radio-inner-circle {
+    background-color: #FAAA49;
+}
+
+.mdc-radio__outer-circle.low {
+    background-color: #1EC779;
+}
+
+.mat-mdc-radio-button.mat-accent.await-feedback {
+    --mdc-radio-disabled-selected-icon-color: black;
+    --mdc-radio-disabled-unselected-icon-color: black;
+    --mdc-radio-unselected-hover-icon-color: #18171c;
+    --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-selected-focus-icon-color: #A262D9;
+    --mdc-radio-selected-hover-icon-color: #A262D9;
+    --mdc-radio-selected-icon-color: #A262D9;
+    --mdc-radio-selected-pressed-icon-color: #A262D9;
+    --mat-radio-ripple-color: black;
+    --mat-radio-checked-ripple-color: #A262D9;
+    --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38);
+}
+
+html .mat-accent.await-feedback {
+    --mat-slider-ripple-color: #A262D9;
+    --mat-slider-hover-state-layer-color: rgba(255, 64, 129, 0.05);
+    --mat-slider-focus-state-layer-color: rgba(255, 64, 129, 0.2);
+    --mdc-slider-handle-color: #A262D9;
+    --mdc-slider-focus-handle-color: #A262D9;
+    --mdc-slider-hover-handle-color: #A262D9;
+    --mdc-slider-active-track-color: #A262D9;
+    --mdc-slider-inactive-track-color: #A262D9;
+    --mdc-slider-with-tick-marks-inactive-container-color: #A262D9;
+    --mdc-slider-with-tick-marks-active-container-color: white;
+}
+
+.mat-mdc-radio-button.mat-accent.contacts {
+    --mdc-radio-disabled-selected-icon-color: black;
+    --mdc-radio-disabled-unselected-icon-color: black;
+    --mdc-radio-unselected-hover-icon-color: #18171c;
+    --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-selected-focus-icon-color: #18171c;
+    --mdc-radio-selected-hover-icon-color: #18171c;
+    --mdc-radio-selected-icon-color: #18171c;
+    --mdc-radio-selected-pressed-icon-color: #18171c;
+    --mat-radio-ripple-color: black;
+    --mat-radio-checked-ripple-color: #18171c;
+    --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38);
+}
+
+html .mat-accent.contacts {
+    --mat-slider-ripple-color: #18171c;
+    --mat-slider-hover-state-layer-color: rgba(255, 64, 129, 0.05);
+    --mat-slider-focus-state-layer-color: rgba(255, 64, 129, 0.2);
+    --mdc-slider-handle-color: #18171c;
+    --mdc-slider-focus-handle-color: #18171c;
+    --mdc-slider-hover-handle-color: #18171c;
+    --mdc-slider-active-track-color: #18171c;
+    --mdc-slider-inactive-track-color: #18171c;
+    --mdc-slider-with-tick-marks-inactive-container-color: #18171c;
+    --mdc-slider-with-tick-marks-active-container-color: white;
+}
+
+.mat-mdc-radio-button.mat-accent.high {
+    --mdc-radio-disabled-selected-icon-color: black;
+    --mdc-radio-disabled-unselected-icon-color: black;
+    --mdc-radio-unselected-hover-icon-color: #18171c;
+    --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-selected-focus-icon-color: #E0465E;
+    --mdc-radio-selected-hover-icon-color: #E0465E;
+    --mdc-radio-selected-icon-color: #E0465E;
+    --mdc-radio-selected-pressed-icon-color: #E0465E;
+    --mat-radio-ripple-color: black;
+    --mat-radio-checked-ripple-color: #E0465E;
+    --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38);
+}
+
+html .mat-accent.high {
+    --mat-slider-ripple-color: #E0465E;
+    --mat-slider-hover-state-layer-color: rgba(255, 64, 129, 0.05);
+    --mat-slider-focus-state-layer-color: rgba(255, 64, 129, 0.2);
+    --mdc-slider-handle-color: #E0465E;
+    --mdc-slider-focus-handle-color: #E0465E;
+    --mdc-slider-hover-handle-color: #E0465E;
+    --mdc-slider-active-track-color: #E0465E;
+    --mdc-slider-inactive-track-color: #E0465E;
+    --mdc-slider-with-tick-marks-inactive-container-color: #E0465E;
+    --mdc-slider-with-tick-marks-active-container-color: white;
+}
+
+.mat-mdc-radio-button.mat-accent.medium {
+    --mdc-radio-disabled-selected-icon-color: black;
+    --mdc-radio-disabled-unselected-icon-color: black;
+    --mdc-radio-unselected-hover-icon-color: #18171c;
+    --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-selected-focus-icon-color: #FAAA49;
+    --mdc-radio-selected-hover-icon-color: #FAAA49;
+    --mdc-radio-selected-icon-color: #FAAA49;
+    --mdc-radio-selected-pressed-icon-color: #FAAA49;
+    --mat-radio-ripple-color: black;
+    --mat-radio-checked-ripple-color: #FAAA49;
+    --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38);
+}
+
+html .mat-accent.medium {
+    --mat-slider-ripple-color: #FAAA49;
+    --mat-slider-hover-state-layer-color: rgba(255, 64, 129, 0.05);
+    --mat-slider-focus-state-layer-color: rgba(255, 64, 129, 0.2);
+    --mdc-slider-handle-color: #FAAA49;
+    --mdc-slider-focus-handle-color: #FAAA49;
+    --mdc-slider-hover-handle-color: #FAAA49;
+    --mdc-slider-active-track-color: #FAAA49;
+    --mdc-slider-inactive-track-color: #FAAA49;
+    --mdc-slider-with-tick-marks-inactive-container-color: #FAAA49;
+    --mdc-slider-with-tick-marks-active-container-color: white;
+}
+
+.mat-mdc-radio-button.mat-accent.low {
+    --mdc-radio-disabled-selected-icon-color: black;
+    --mdc-radio-disabled-unselected-icon-color: black;
+    --mdc-radio-unselected-hover-icon-color: #18171c;
+    --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
+    --mdc-radio-selected-focus-icon-color: #1EC779;
+    --mdc-radio-selected-hover-icon-color: #1EC779;
+    --mdc-radio-selected-icon-color: #1EC779;
+    --mdc-radio-selected-pressed-icon-color: #1EC779;
+    --mat-radio-ripple-color: black;
+    --mat-radio-checked-ripple-color: #1EC779;
+    --mat-radio-disabled-label-color: rgba(0, 0, 0, 0.38);
+}
+
+html .mat-accent.low {
+    --mat-slider-ripple-color: #1EC779;
+    --mat-slider-hover-state-layer-color: rgba(255, 64, 129, 0.05);
+    --mat-slider-focus-state-layer-color: rgba(255, 64, 129, 0.2);
+    --mdc-slider-handle-color: #1EC779;
+    --mdc-slider-focus-handle-color: #1EC779;
+    --mdc-slider-hover-handle-color: #1EC779;
+    --mdc-slider-active-track-color: #1EC779;
+    --mdc-slider-inactive-track-color: #1EC779;
+    --mdc-slider-with-tick-marks-inactive-container-color: #1EC779;
+    --mdc-slider-with-tick-marks-active-container-color: white;
+}

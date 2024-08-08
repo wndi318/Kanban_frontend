@@ -2,10 +2,11 @@ import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { environment } from '../../../environments/environment';
 import { lastValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @Component({
   selector: 'app-task',
@@ -24,6 +25,7 @@ export class TaskComponent {
   contacts: any = [];
 
   constructor(
+    private dialog: MatDialog,
     public dialogRef: MatDialogRef<TaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private http: HttpClient,
@@ -65,6 +67,19 @@ export class TaskComponent {
       default:
         return 'black';
     }
+  }
+
+  openEditTaskDialog(task: any): void {
+    const dialogRef = this.dialog.open(EditTaskComponent, {
+      width: '500px',
+      data: { task }
+    });
+    dialogRef.afterClosed().subscribe(async result => {
+      if (result && result.saved) {
+        this.task = { ...result.task };
+        this.dialogRef.close({ saved: true });
+      }
+    });
   }
 
   onNoClick(): void {

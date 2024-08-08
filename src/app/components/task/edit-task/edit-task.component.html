@@ -1,1 +1,48 @@
-<p>edit-task works!</p>
+<section>
+  <mat-card>
+    <mat-card-content>
+      <div class="header">
+        <span>Edit Task</span>
+        <button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
+      </div>
+      <div class="content">
+        <form>
+          <span><b>Title:</b></span>
+          <input name="title" [(ngModel)]="editedTask.title">
+          <span><b>Description:</b></span>
+          <textarea name="description" [(ngModel)]="editedTask.description"></textarea>
+          <span><b>Status:</b></span>
+          <mat-radio-group name="status" [(ngModel)]="editedTask.status">
+            <mat-radio-button value="todo" class="high">Todo</mat-radio-button>
+            <mat-radio-button value="inProgress" class="medium">In progress</mat-radio-button>
+            <mat-radio-button value="awaitFeedback" class="await-feedback">Await feedback</mat-radio-button>
+          </mat-radio-group>
+          <span><b>Priority:</b></span>
+          <mat-radio-group name="priority" [(ngModel)]="editedTask.priority">
+            <mat-radio-button value="high" class="high">High</mat-radio-button>
+            <mat-radio-button value="medium" class="medium">Medium</mat-radio-button>
+            <mat-radio-button value="low" class="low">Low</mat-radio-button>
+          </mat-radio-group>
+          <span><b>Due date:</b></span>
+          <input type="date" class="datepicker" name="due-date" [(ngModel)]="editedTask.due_date">
+          <span><b>Assigned to:</b></span>
+          <div class="assigned-to-container">
+            <ng-container *ngFor="let contact of contacts">
+              <span>
+                <input
+                  type="checkbox"
+                  [checked]="isAssignedTo(contact.id)"
+                  (change)="toggleAssignedTo(contact.id, $event)">
+                {{ contact.firstname }} {{ contact.lastname }}
+              </span>
+            </ng-container>
+          </div>
+        </form>
+      </div>
+      <div class="button-container">
+        <button (click)="saveTask()">Save</button>
+        <button (click)="onNoClick()">Cancel</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>

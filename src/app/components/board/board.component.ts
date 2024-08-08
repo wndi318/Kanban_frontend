@@ -11,7 +11,7 @@ import {
   CdkDropList,
   DragDropModule
 } from '@angular/cdk/drag-drop';
-import { MatDialogModule, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { NewTaskComponent } from '../new-task/new-task.component';
 import { TaskComponent } from '../task/task.component';
 import { HttpClient } from '@angular/common/http';
@@ -139,7 +139,7 @@ export class BoardComponent {
       data: task
     });
     dialogRef.afterClosed().subscribe(async result => {
-      if (result) {
+      if (result && (result.saved || result.deleted)) {
         this.tasks = await this.loadTasks();
         this.categorizeTasks();
       }
