@@ -1,28 +1,29 @@
 <section>
     <mat-card>
-        <mat-card-content>
-            <h1>Login</h1>
-            <form>
-                <span>Username</span>
-                <input>
-                <div class="name-container">
-                    <div>
-                        <span>Firstname</span>
-                        <input>
-                    </div>
-                    <div>
-                        <span>Lastname</span>
-                        <input>
-                    </div>
-                </div>
-                <span>E-Mail</span>
-                <input>
-                <span>Password</span>
-                <input>
-                <div class="button-container">
-                    <button class="register" routerLink="">Register</button>
-                </div>
-            </form>
-        </mat-card-content>
+      <mat-card-content>
+        <h1>Register</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <span>Username</span>
+          <input formControlName="username">
+          <div class="name-container">
+            <div>
+              <span>Firstname</span>
+              <input formControlName="first_name">
+            </div>
+            <div>
+              <span>Lastname</span>
+              <input formControlName="last_name">
+            </div>
+          </div>
+          <span>E-Mail</span>
+          <input formControlName="email">
+          <span>Password</span>
+          <input type="password" formControlName="password">
+          <div class="button-container">
+            <button type="submit" class="register">Register</button>
+          </div>
+        </form>
+      </mat-card-content>
     </mat-card>
-</section>
+  </section>
+  
