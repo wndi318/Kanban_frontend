@@ -3,7 +3,7 @@
         <span>Herzlich Willkommen, {{ currentUser.first_name }}!</span> 
         <div>
             <mat-icon (click)="openContactsDialog()">groups</mat-icon>
-            <mat-icon routerLink="">logout</mat-icon>
+            <mat-icon (click)="logout()">logout</mat-icon>
         </div>
     </div>
 </nav>
