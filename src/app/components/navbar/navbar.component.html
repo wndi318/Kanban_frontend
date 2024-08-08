@@ -1,6 +1,6 @@
 <nav>
     <div>
-        <span>Herzlich Willkommen, User!</span> 
+        <span>Herzlich Willkommen, {{ currentUser.first_name }}!</span> 
         <div>
             <mat-icon (click)="openContactsDialog()">groups</mat-icon>
             <mat-icon routerLink="">logout</mat-icon>
